@@ -17,15 +17,15 @@ describe('App', () => {
   })
 
   describe('when clicking the `add-gift` button', () => {
-    it('adds a new gift to `state` when clicking the `add gift` button', () => {
+    beforeEach(() => {
       app.find('.btn-add').simulate('click')
+    })
 
+    it('adds a new gift to `state`', () => {
       expect(app.state().gifts).toEqual([{ id: 1 }])
     })
 
-    it('adds a new gift to the rendered list when clicking the `add gift` button', () => {
-      app.find('.btn-add').simulate('click')
-
+    it('adds a new gift to the rendered list', () => {
       expect(app.find('.gift-list').children().length).toEqual(2)
     })
   })
